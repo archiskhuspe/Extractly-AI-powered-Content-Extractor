@@ -308,7 +308,7 @@ export default function Home() {
             <h2 className="text-xl font-bold text-blue-700 whitespace-nowrap">Extraction History</h2>
             <div className="flex gap-2 items-center">
               <Input type="text" placeholder="Search..." value={search} onChange={handleSearch} className="w-48 text-sm" />
-              <Button onClick={() => fetchAllExtracted(0, search)} disabled={fetchingAll} className="bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition-colors text-sm font-medium px-4 py-2 whitespace-nowrap">{fetchingAll ? 'Fetching...' : 'View/Refresh'}</Button>
+              <Button onClick={() => fetchAllExtracted(0, search)} disabled={fetchingAll} className="bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition-colors text-sm font-medium px-4 py-2 whitespace-nowrap">{fetchingAll ? 'Fetching...' : 'View/Refresh History'}</Button>
               <Button onClick={handleExportAllPDF} className="bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition-colors text-sm font-medium px-4 py-2 whitespace-nowrap">Export as PDF</Button>
             </div>
           </div>
