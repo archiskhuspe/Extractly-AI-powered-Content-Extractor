@@ -116,6 +116,7 @@ public class ExtractController {
             var entity = entityOpt.get();
             if (body.containsKey("url")) entity.setUrl(body.get("url"));
             if (body.containsKey("content")) entity.setContent(body.get("content"));
+            if (body.containsKey("summary")) entity.setSummary(body.get("summary"));
             extractedContentRepository.save(entity);
             return ResponseEntity.ok(entity);
         } else {
