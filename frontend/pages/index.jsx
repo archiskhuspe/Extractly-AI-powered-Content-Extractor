@@ -196,14 +196,14 @@ export default function Home() {
   const startEdit = (item) => {
     setEditId(item.id);
     setEditUrl(item.url);
-    setEditContent(item.content);
+    setEditContent(item.summary || '');
   };
   const saveEdit = async (id) => {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/extracted/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: editUrl, content: editContent })
+        body: JSON.stringify({ url: editUrl, summary: editContent })
       });
       if (res.ok) {
         setToast({ message: 'Updated!', type: 'info' });
@@ -253,7 +253,7 @@ export default function Home() {
     const doc = new jsPDF();
     let y = 15;
     doc.setFontSize(18);
-    doc.text('All Extracted Content', 10, y);
+    doc.text('All Extracted Summaries', 10, y);
     y += 10;
     doc.setFontSize(12);
     allExtracted.forEach((item, idx) => {
@@ -262,15 +262,15 @@ export default function Home() {
       doc.text(`${idx + 1}. ${item.url}`, 10, y);
       y += 7;
       doc.setFont(undefined, 'normal');
-      const contentLines = doc.splitTextToSize(item.content, 180);
-      contentLines.forEach(line => {
+      const summaryLines = doc.splitTextToSize(item.summary || '', 180);
+      summaryLines.forEach(line => {
         if (y > 270) { doc.addPage(); y = 15; }
         doc.text(line, 12, y);
         y += 6;
       });
       y += 4;
     });
-    doc.save('all-extracted-content.pdf');
+    doc.save('all-extracted-summaries.pdf');
   };
 
   return (
