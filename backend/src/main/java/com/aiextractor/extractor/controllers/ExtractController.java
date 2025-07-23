@@ -59,6 +59,8 @@ public class ExtractController {
             Map<String, Object> summaryResult = summarizationService.summarize(text, 5);
             String summary = (String) summaryResult.get("summary");
             List<String> keyPoints = (List<String>) summaryResult.get("keyPoints");
+            entity.setSummary(summary);
+            extractedContentRepository.save(entity);
             return ResponseEntity.ok(new SummaryResponse(summary, keyPoints));
         } catch (MalformedURLException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", "Malformed URL."));
@@ -86,8 +88,15 @@ public class ExtractController {
         } else {
             result = extractedContentRepository.findAll(pageable);
         }
+        // Map each ExtractedContent to include summary, url, id, and content
+        List<Map<String, Object>> contentList = result.getContent().stream().map(item -> Map.<String, Object>of(
+            "id", item.getId(),
+            "url", item.getUrl(),
+            "summary", item.getSummary(),
+            "content", item.getContent()
+        )).collect(java.util.stream.Collectors.toList());
         Map<String, Object> response = Map.of(
-            "content", result.getContent(),
+            "content", contentList,
             "totalElements", result.getTotalElements(),
             "totalPages", result.getTotalPages(),
             "page", result.getNumber(),
