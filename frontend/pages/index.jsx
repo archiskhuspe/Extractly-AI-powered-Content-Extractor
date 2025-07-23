@@ -338,7 +338,7 @@ export default function Home() {
                         {editId === item.id ? (
                           <textarea value={editContent} onChange={e => setEditContent(e.target.value)} className="w-full min-h-[80px] rounded border border-input px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500" />
                         ) : (
-                          <span className="block whitespace-pre-line">{search ? highlightText(item.content.slice(0, 300), search) : item.content.slice(0, 300)}{item.content.length > 300 ? '...' : ''}</span>
+                          <span className="block whitespace-pre-line">{search ? highlightText(item.summary ? item.summary.slice(0, 300) : '', search) : (item.summary ? item.summary.slice(0, 300) : '')}{item.summary && item.summary.length > 300 ? '...' : ''}</span>
                         )}
                       </td>
                       <td className="px-2 py-2 align-top flex gap-1">
