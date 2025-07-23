@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/extract",
+      "destination": "https://ai-powered-content-extractor-production.up.railway.app/api/extract"
+    }
+  ]
+}
