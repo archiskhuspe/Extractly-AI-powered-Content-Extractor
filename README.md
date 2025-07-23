@@ -23,16 +23,19 @@
   ## 🖼️ Screenshots
 
   ### Summary Extraction with PDF Export
-  ![Screenshot](./frontend/screenshots/image1.png)
+  ![Screenshot](./screenshots/image1.png)
 
-  ### Key Points Table
-  ![Screenshot](./frontend/screenshots/image2.png)
+  ### Key Points
+  ![Screenshot](./screenshots/image2.png)
 
-  ### Key Points Search Functionality
-  ![Screenshot](./frontend/screenshots/image3.png)
+  ### Summary Extraction History
+  ![Screenshot](./screenshots/image3.png)
 
-  ### Key Points Edit Functionality
-  ![Screenshot](./frontend/screenshots/image4.png)
+  ### Search Functionality
+  ![Screenshot](./screenshots/image4.png)
+
+  ### Edit Functionality
+  ![Screenshot](./screenshots/image5.png)
 
   ---
 
