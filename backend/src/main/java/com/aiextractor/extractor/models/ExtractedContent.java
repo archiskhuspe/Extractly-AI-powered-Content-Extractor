@@ -13,6 +13,9 @@ public class ExtractedContent {
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    @Column(columnDefinition = "TEXT")
+    private String summary;
+
     // Getters and setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -22,4 +25,7 @@ public class ExtractedContent {
 
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }
+
+    public String getSummary() { return summary; }
+    public void setSummary(String summary) { this.summary = summary; }
 } 
