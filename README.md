@@ -7,7 +7,7 @@
   ## ✨ Features
   - Extracts main content from any public URL (removes nav/footer/ads, prefers main/article/largest/div)
   - Summarizes content using open-source NLP (local or HuggingFace Inference API)
-  - Produces a 2–3 paragraph summary and key points based on the summary
+  - Produces a paragraphed summary and key points based on that summary
   - Notion-style editable/searchable key points table
   - Inline editing and deletion of key points (with animation)
   - Search with highlight and instant filtering
